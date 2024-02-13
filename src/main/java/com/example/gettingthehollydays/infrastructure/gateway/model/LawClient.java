@@ -1,12 +1,16 @@
 package com.example.gettingthehollydays.infrastructure.gateway.model;
 
+import java.io.Serializable;
 import java.util.Objects;
 
-public class LawClient {
+public class LawClient implements Serializable {
 
   private String nombre;
   private String url;
 
+  public LawClient() {
+
+  }
 
   public static LawClientBuilder builder() {
     return new LawClient.LawClientBuilder();

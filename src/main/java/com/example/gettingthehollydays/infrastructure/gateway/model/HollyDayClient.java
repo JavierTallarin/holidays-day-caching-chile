@@ -1,9 +1,10 @@
 package com.example.gettingthehollydays.infrastructure.gateway.model;
 
+import java.io.Serializable;
 import java.util.List;
 import java.util.Objects;
 
-public class HollyDayClient {
+public class HollyDayClient implements Serializable {
 
     private String nombre;
     private String comentarios;
@@ -12,6 +13,8 @@ public class HollyDayClient {
     private String tipo;
     private List<LawClient> leyes;
 
+    public HollyDayClient() {
+    }
 
     public static HollyDayClientBuilder builder() {
         return new HollyDayClient.HollyDayClientBuilder();

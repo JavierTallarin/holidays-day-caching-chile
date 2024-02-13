@@ -2,3 +2,13 @@ api:
   gob:
     url: https://apis.digital.gob.cl/fl/feriados
 
+logging:
+  level:
+    org.springframework.cache: TRACE  # Para ver detalles sobre las operaciones de caché
+    org.springframework.data.redis: TRACE  # Para ver detalles sobre las operaciones de Redis
+
+spring:
+  data:
+    redis:
+      host: localhost
+      port: 6379

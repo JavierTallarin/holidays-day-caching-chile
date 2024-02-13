@@ -9,6 +9,7 @@ import com.example.gettingthehollydays.infrastructure.gateway.util.ApiRestClient
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.stereotype.Service;
 
@@ -27,13 +28,16 @@ public class GetHollyDaysFromExternalApiGateway implements GetHollyDaysChileGate
     this.url = url;
   }
 
+  @Cacheable(value = "hollyDaysClients", unless = "#result == null || #result.isEmpty()")
   @Override
   public List<HollyDay> execute() {
 
     return this.hollyDaysListToDomainMapper.execute(this.getHollyDayClientListFromExternalApi());
   }
 
-  private List<HollyDayClient> getHollyDayClientListFromExternalApi() {
+
+  //@Cacheable(value = "hollyDaysClients", unless = "#result == null || #result.isEmpty()")
+  public List<HollyDayClient> getHollyDayClientListFromExternalApi() {
 
     ParameterizedTypeReference<List<HollyDayClient>> typeRef = new ParameterizedTypeReference<>() {};
 

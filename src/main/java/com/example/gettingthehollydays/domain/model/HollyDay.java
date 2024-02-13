@@ -1,9 +1,10 @@
 package com.example.gettingthehollydays.domain.model;
 
+import java.io.Serializable;
 import java.util.List;
 import java.util.Objects;
 
-public class HollyDay {
+public class HollyDay implements Serializable {
 
     private String nombre;
     private String comentarios;
@@ -12,6 +13,8 @@ public class HollyDay {
     private String tipo;
     private List<Law> leyes;
 
+    public HollyDay() {
+    }
 
     public static HollyDayBuilder builder() {
         return new HollyDay.HollyDayBuilder();

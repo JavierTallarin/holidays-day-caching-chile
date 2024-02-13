@@ -1,12 +1,15 @@
 package com.example.gettingthehollydays.domain.model;
 
+import java.io.Serializable;
 import java.util.Objects;
 
-public class Law {
+public class Law implements Serializable {
 
   private String nombre;
   private String url;
 
+  public Law() {
+  }
 
   public static LawBuilder builder() {
     return new Law.LawBuilder();
